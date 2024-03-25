@@ -1,0 +1,92 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SunEngineers | {% block title %} {% endblock title %} </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!--Owl Carousel CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+
+    <!--Modal CSS-->
+    <link rel="stylesheet" href="{% static 'app/css/modal.css' %}">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'app/images/2.jfif' %}">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="container">
+       <a class="navbar-brand" style=" font-size: 40px;" href="/">SunEngineers</a>
+       <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"  ></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item">
+             <a class="nav-link " style="color:black;font-size: 20px;" aria-current="page" href="/">Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link " style="color:black ;font-size: 20px;" aria-current="page" href="/manufacturing/">Manufacturing</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link " style="color:black ;font-size: 20px;" aria-current="page" href="/products/">Produtcs</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link " style="color:black ;font-size: 20px;" aria-current="page" href="/contactus/">Contactus</a>
+           </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% if messages %}
+    {% for message in messages %}
+    <!-- Trigger/Open The Modal -->
+    <!-- The Modal -->
+    <div id="myModal" class="modal2">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>{{ message }}</p>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block banner_slider %} {% endblock banner_slider %}
+    {% block profile %} {% endblock profile %}
+    {% block main-content %} {% endblock main-content %}
+
+    <!-- Start Footer -->
+    <footer class="container-fluid bg-dark text-center p-2 mt-5">
+        <small class="text-white">Copyright &copy; 2021 || Designed By Mazhar Rasheed || </small>
+
+    </footer> <!-- End Footer -->
+
+    <!-- Jquery  Bootstrap Bundle with Popper -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Bootstrap Bundle with Popper -->
+
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/myscript.js' %}"></script>
+    <script src="{% static 'app/js/modal.js' %}"></script>
+
+  </body>
+</html>

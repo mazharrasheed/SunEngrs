@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}My_store{% endblock title %} 
+
+
+{% load cart %}
+{% load custom_filters %}
+{% load static %}
+
+{% block main-content %}
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="list-group">
+          <a href="/products/" class="list-group-item" style="color:black">All Products</a>
+          {% for category in categories  %}
+          <a href="?category={{category.id}}" class="list-group-item" style="color:black">{{category.name}}</a>
+          {% endfor %} 
+      </div>
+    </div>
+
+    <div id="product" class="col-lg-9">
+      <div class="row mx-auto">
+        {% if products %}
+        
+        {% for product in products %}
+        <div class="card mx-auto mb-3" id="{{product.id}}" style="width: 18rem">
+          <img src="{{product.pro_img.url}}" class="card-img-top" alt="..." />
+          <div class="card-body p-0">
+            <h5 class="card-title text-center">{{product.product_name}}</h5>
+            <div class="card-footer p-0 row no-gutters text-center ">
+              <a style= "text-decoration: none ;" href="#">Get Quote</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h3 class="alert alert-light border rounded">Curruntly No Item to Show</h3>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock main-content %}
